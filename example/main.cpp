@@ -2,5 +2,6 @@
 #include <iostream>
 
 int main() {
-    std::cout << gcd(1, 2) << '\n';
+    int x, y;
+    std::cout << residue_class::extgcd(1, 2, x, y) << '\n';
 }
