@@ -5,6 +5,11 @@ namespace residue_class {
 
 template <class T>
 T extgcd(T a, T b, T &x, T &y) {
+    int sign_a = (a > 0 ? 1 : -1);
+    int sign_b = (b > 0 ? 1 : -1);
+    if (a < 0) a *= -1;
+    if (b < 0) b *= -1;
+
     T q, r, xx, yy;
 
     int sign = 1;
@@ -22,8 +27,8 @@ T extgcd(T a, T b, T &x, T &y) {
         sign *= -1;
     }
 
-    x = sign * xs[0];
-    y = -sign * ys[0];
+    x = sign_a * sign * xs[0];
+    y = -sign_b * sign * ys[0];
     return a;
 }
 

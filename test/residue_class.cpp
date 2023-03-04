@@ -12,4 +12,7 @@ TEST(ResidueClass, ExtGcd) {
     EXPECT_EQ(rc::extgcd(BigInt(10), BigInt(5), x, y), 5);
     EXPECT_EQ(x, 0);
     EXPECT_EQ(y, 1);
+    EXPECT_EQ(rc::extgcd(BigInt(-10), BigInt(-32), x, y), 2);
+    EXPECT_EQ(x, 3);
+    EXPECT_EQ(y, -1);
 }
