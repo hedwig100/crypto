@@ -1,3 +1,3 @@
 
 add_executable(a.out main.cpp)
-target_link_libraries(a.out residule_class)
+target_link_libraries(a.out residue_class)
