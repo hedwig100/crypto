@@ -17,3 +17,9 @@ cmake --build build
 ```
 ./build/example/a.out
 ```
+
+## Test
+
+```
+cd build/test && ctest
+```
