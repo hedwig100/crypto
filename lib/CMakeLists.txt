@@ -1,4 +1,6 @@
 
+include_directories(Boost_INCLUDE_DIRS)
+
 ## Residule Class Ring 
 
 add_library(residule_class

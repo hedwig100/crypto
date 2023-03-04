@@ -1,5 +1,12 @@
 # Intro Crypto
 
+## Requriements
+
+- Boost Library
+```
+sudo apt-get install libboost-dev
+```
+
 ## Build
 
 ```
