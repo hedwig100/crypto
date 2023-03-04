@@ -4,33 +4,7 @@
 namespace residue_class {
 
 template <class T>
-T extgcd(T a, T b, T &x, T &y) {
-    int sign_a = (a > 0 ? 1 : -1);
-    int sign_b = (b > 0 ? 1 : -1);
-    if (a < 0) a *= -1;
-    if (b < 0) b *= -1;
-
-    T q, r, xx, yy;
-
-    int sign = 1;
-    T xs[2]  = {T(1), T(0)};
-    T ys[2]  = {T(0), T(1)};
-
-    while (b != 0) {
-        r = a % b, q = a / b;
-        a = b, b = r;
-        xx = xs[1], yy = ys[1];
-        xs[1] = q * xs[1] + xs[0];
-        ys[1] = q * ys[1] + ys[0];
-        xs[0] = xx;
-        ys[0] = yy;
-        sign *= -1;
-    }
-
-    x = sign_a * sign * xs[0];
-    y = -sign_b * sign * ys[0];
-    return a;
-}
+T extgcd(T a, T b, T &x, T &y);
 
 } // namespace residue_class
 
