@@ -36,6 +36,16 @@ T extgcd(T a, T b, T &x, T &y) {
 template int extgcd<int>(int, int, int &, int &);
 template BigInt extgcd<BigInt>(BigInt, BigInt, BigInt &, BigInt &);
 
+// gcd caluclate gcd(a,b)
+template <typename T>
+T gcd(T a, T b) {
+    T x, y;
+    return extgcd(a, b, x, y);
+}
+
+template int gcd<int>(int, int);
+template BigInt gcd<BigInt>(BigInt, BigInt);
+
 // pow calculate x^n mod m
 template <typename T>
 T pow(T x, T n, T m) {
