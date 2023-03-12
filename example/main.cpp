@@ -1,7 +1,7 @@
-#include "euclid.hpp"
+#include "prime_gen.hpp"
 #include <iostream>
 
 int main() {
-    int x, y;
-    std::cout << residue_class::extgcd(1, 2, x, y) << '\n';
+    auto x = residue_class::prime_gen(128, 20, 10);
+    std::cout << x << '\n';
 }

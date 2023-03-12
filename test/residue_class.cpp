@@ -33,3 +33,16 @@ TEST(ResidueClass, MillerRabin) {
     EXPECT_FALSE(rc::miller_rabin(BigInt("471983479312"), 10));
     EXPECT_FALSE(rc::miller_rabin(BigInt("10987364293874983242"), 10));
 }
+
+TEST(ResidueClass, PrimeGen) {
+    int n = 0, n_success = 0;
+    for (int i = 0; i < n; i++) {
+        BigInt p = rc::prime_gen(128, 20, 10);
+        if (p > 0) {
+            n_success++;
+            EXPECT_TRUE(rc::miller_rabin(p, 10));
+        }
+    }
+    RecordProperty("NumberOfSuccess", n_success);
+    RecordProperty("NumberOfFailure", n - n_success);
+}
