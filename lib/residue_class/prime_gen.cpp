@@ -86,4 +86,15 @@ BigInt prime_gen(int k, int t = 10, int miller_t = 10) {
     return BigInt(-1);
 }
 
+// prime_gen_must generate k bit prime positive number
+// miller_t is times to test miller rabin test
+BigInt prime_gen_must(int k, int miller_t = 10) {
+    while (1) {
+        BigInt trial_integer = _make_random_k_bit_integer(k);
+        if (miller_rabin(trial_integer, miller_t)) {
+            return trial_integer;
+        }
+    }
+}
+
 } // namespace residue_class

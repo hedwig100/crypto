@@ -2,6 +2,6 @@
 #include <iostream>
 
 int main() {
-    auto x = residue_class::prime_gen(128, 20, 10);
+    auto x = residue_class::prime_gen_must(1024, 10);
     std::cout << x << '\n';
 }

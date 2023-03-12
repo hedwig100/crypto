@@ -35,7 +35,7 @@ TEST(ResidueClass, MillerRabin) {
 }
 
 TEST(ResidueClass, PrimeGen) {
-    int n = 0, n_success = 0;
+    int n = 10, n_success = 0;
     for (int i = 0; i < n; i++) {
         BigInt p = rc::prime_gen(128, 20, 10);
         if (p > 0) {
@@ -45,4 +45,9 @@ TEST(ResidueClass, PrimeGen) {
     }
     RecordProperty("NumberOfSuccess", n_success);
     RecordProperty("NumberOfFailure", n - n_success);
+}
+
+TEST(ResidueClass, PrimeGenMust) {
+    BigInt p = rc::prime_gen_must(1024, 10);
+    EXPECT_TRUE(rc::miller_rabin(p, 10));
 }
