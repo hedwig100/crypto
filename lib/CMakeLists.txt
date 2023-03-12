@@ -6,6 +6,7 @@ include_directories(Boost_INCLUDE_DIRS)
 add_library(residue_class
     SHARED
      residue_class/euclid.cpp
+     residue_class/prime_gen.cpp
 )
 
 target_include_directories(residue_class
