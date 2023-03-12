@@ -5,6 +5,8 @@ namespace residue_class {
 
 template <class T>
 T extgcd(T a, T b, T &x, T &y);
+template <class T>
+T pow(T x, T n, T m);
 
 } // namespace residue_class
 

@@ -36,4 +36,20 @@ T extgcd(T a, T b, T &x, T &y) {
 template int extgcd<int>(int, int, int &, int &);
 template BigInt extgcd<BigInt>(BigInt, BigInt, BigInt &, BigInt &);
 
+// pow calculate x^n mod m
+template <typename T>
+T pow(T x, T n, T m) {
+    T ret = T(1), p = T(x);
+    while (n > 0) {
+        if (n & 1) {
+            ret = (ret * p) % m;
+        }
+        n >>= 1;
+        p = p * p % m;
+    }
+    return ret;
+}
+
+template int pow<int>(int, int, int);
+template BigInt pow<BigInt>(BigInt, BigInt, BigInt);
 } // namespace residue_class
