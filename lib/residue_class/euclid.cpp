@@ -62,4 +62,21 @@ T pow(T x, T n, T m) {
 
 template int pow<int>(int, int, int);
 template BigInt pow<BigInt>(BigInt, BigInt, BigInt);
+
+// inv calculate x^{-1} mod m
+// if there is no x^{-1}, return meaningless value.
+template <class T>
+T inv(T x, T m) {
+    T z, w;
+    extgcd(x, m, z, w);
+    z %= m;
+    if (z < 0) {
+        z = (z + m) % m;
+    }
+    return z;
+}
+
+template int inv<int>(int, int);
+template BigInt inv<BigInt>(BigInt, BigInt);
+
 } // namespace residue_class

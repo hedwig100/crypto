@@ -24,6 +24,12 @@ TEST(ResidueClass, Pow) {
     EXPECT_EQ(rc::pow(BigInt(2), BigInt(10), BigInt(250)), BigInt(24));
 }
 
+TEST(ResidueClass, Inv) {
+    EXPECT_EQ(rc::inv(BigInt(4), BigInt(9)), BigInt(7));
+    EXPECT_EQ(rc::inv(BigInt(2), BigInt(5)), BigInt(3));
+    EXPECT_EQ(rc::inv(BigInt(2), BigInt(11)), BigInt(6));
+}
+
 TEST(ResidueClass, MillerRabin) {
     EXPECT_TRUE(rc::miller_rabin(BigInt(7), 10));
     EXPECT_TRUE(rc::miller_rabin(BigInt(1223), 10));
