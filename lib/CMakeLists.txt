@@ -12,3 +12,20 @@ add_library(residue_class
 target_include_directories(residue_class
     PUBLIC ${PROJECT_SOURCE_DIR}/include/residue_class
 )
+
+## CryptoSystem
+
+add_library(cryptosystem
+    SHARED
+     cryptosystem/rsa.cpp
+)
+
+target_link_libraries(
+    cryptosystem
+    residue_class
+)
+
+target_include_directories(cryptosystem
+    PUBLIC ${PROJECT_SOURCE_DIR}/include/residue_class
+    PUBLIC ${PROJECT_SOURCE_DIR}/include/cryptosystem
+)

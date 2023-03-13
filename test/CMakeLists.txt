@@ -24,6 +24,22 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+## cryptosystem
+add_executable(
+  cryptosystem_test
+  cryptosystem.cpp
+)
+target_include_directories(cryptosystem_test
+  PUBLIC ${PROJECT_SOURCE_DIR}/include/cryptosystem
+)
+target_link_libraries(
+  cryptosystem_test
+  cryptosystem
+  GTest::gtest_main
+)
+
+
 include(GoogleTest)
 gtest_discover_tests(hello_test)
 gtest_discover_tests(residue_class_test)
+gtest_discover_tests(cryptosystem_test)
