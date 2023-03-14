@@ -11,4 +11,5 @@ TEST(Cryptosystem, RSA) {
 
     BigInt m = BigInt(141439487983);
     EXPECT_EQ(Dec.decrypt(Enc.encrypt(m)), m);
+    EXPECT_EQ(Dec.fast_decrypt(Enc.encrypt(m)), m);
 }

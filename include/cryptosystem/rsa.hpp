@@ -12,9 +12,13 @@ class RsaDecrypter {
   private:
     BigInt n, p, q, d;
 
+    // for fast_decrypt
+    BigInt d_modp, d_modq, yp, yq;
+
   public:
     RsaDecrypter(BigInt p, BigInt q, BigInt d);
     BigInt decrypt(BigInt c);
+    BigInt fast_decrypt(BigInt c);
 };
 
 class RsaEncrypter {
