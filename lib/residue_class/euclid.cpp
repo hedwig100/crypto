@@ -1,3 +1,4 @@
+#include "euclid.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 namespace mp = boost::multiprecision;
 using BigInt = mp::cpp_int;
@@ -78,5 +79,27 @@ T inv(T x, T m) {
 
 template int inv<int>(int, int);
 template BigInt inv<BigInt>(BigInt, BigInt);
+
+// eratosthenes generate primes lower than B O(BlogB).
+std::vector<int> eratosthenes(int B) {
+    std::vector<bool> is_prime(B + 1, true);
+    is_prime[0] = is_prime[1] = false;
+
+    for (int f = 4; f <= B; f += 2)
+        is_prime[f] = false;
+    for (int p = 3; p <= B; p += 2) {
+        if (!is_prime[p]) continue;
+        for (int d = 2 * p; d <= B; d += p) {
+            is_prime[d] = false;
+        }
+    }
+
+    std::vector<int> primes;
+    primes.reserve(B);
+    for (int p = 2; p <= B; p++) {
+        if (is_prime[p]) primes.push_back(p);
+    }
+    return primes;
+}
 
 } // namespace residue_class
