@@ -119,4 +119,32 @@ std::vector<int> eratosthenes(int B) {
     return primes;
 }
 
+// solve solves linear equation Ax = b in mod2.
+// if there are answers, return {x, true }
+// else                , return { , false}
+std::pair<std::vector<F2>, bool> solve(std::vector<std::vector<F2>> A, std::vector<F2> b) {
+    int n = A.size(), m = b.size();
+    assert(A[0].size() == m);
+
+    for (int i = 0; i < n; i++) {
+
+        int pivot = -1;
+        for (int j = i; j < n; j++) {
+            if (A[j][i] != 0) {
+                pivot = j;
+                break;
+            }
+        }
+        if (pivot < 0) return {{}, false};
+        std::swap(A[i], A[pivot]);
+
+        for (int j = i + 1; j < n; j++) {
+            if (A[j][i] == 0) continue;
+            for (int k = i; k < m; k++) {
+                A[j][k] -= A[i][k];
+            }
+        }
+    }
+}
+
 } // namespace residue_class
