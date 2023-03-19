@@ -64,6 +64,23 @@ T pow(T x, T n, T m) {
 template int pow<int>(int, int, int);
 template BigInt pow<BigInt>(BigInt, BigInt, BigInt);
 
+// pow calculate x^n
+template <typename T>
+T pow(T x, T n) {
+    T ret = T(1), p = T(x);
+    while (n > 0) {
+        if (n & 1) {
+            ret = (ret * p);
+        }
+        n >>= 1;
+        p = p * p;
+    }
+    return ret;
+}
+
+template int pow<int>(int, int);
+template BigInt pow<BigInt>(BigInt, BigInt);
+
 // inv calculate x^{-1} mod m
 // if there is no x^{-1}, return meaningless value.
 template <class T>

@@ -12,6 +12,8 @@ T gcd(T a, T b);
 template <class T>
 T pow(T x, T n, T m);
 template <class T>
+T pow(T x, T n);
+template <class T>
 T inv(T x, T m);
 
 std::vector<int> eratosthenes(int B);
