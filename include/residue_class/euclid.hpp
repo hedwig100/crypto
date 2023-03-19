@@ -18,6 +18,9 @@ T inv(T x, T m);
 
 std::vector<int> eratosthenes(int B);
 
+using F2 = int;
+std::pair<std::vector<F2>, bool> solve(std::vector<std::vector<F2>> A, std::vector<F2> b);
+
 } // namespace residue_class
 
 #endif
