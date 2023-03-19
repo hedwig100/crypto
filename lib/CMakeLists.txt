@@ -35,6 +35,7 @@ target_include_directories(residue_class
 add_library(factoring
     SHARED
       factoring/p_minus_1.cpp
+      factoring/quadratic_sieve.cpp
 )
 
 target_link_libraries(factoring
