@@ -24,6 +24,20 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+## factoring
+add_executable(
+  factoring_test
+  factoring.cpp
+)
+target_include_directories(factoring_test
+  PUBLIC ${PROJECT_SOURCE_DIR}/include/factoring
+)
+target_link_libraries(
+  factoring_test
+  factoring
+  GTest::gtest_main
+)
+
 ## cryptosystem
 add_executable(
   cryptosystem_test
@@ -42,4 +56,5 @@ target_link_libraries(
 include(GoogleTest)
 gtest_discover_tests(hello_test)
 gtest_discover_tests(residue_class_test)
+gtest_discover_tests(factoring_test)
 gtest_discover_tests(cryptosystem_test)

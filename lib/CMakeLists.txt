@@ -30,6 +30,24 @@ target_include_directories(residue_class
     PUBLIC ${PROJECT_SOURCE_DIR}/include/residue_class
 )
 
+## Factoring 
+
+add_library(factoring
+    SHARED
+      factoring/p_minus_1.cpp
+)
+
+target_link_libraries(factoring
+    random 
+    residue_class
+)
+
+target_include_directories(factoring
+    PUBLIC ${PROJECT_SOURCE_DIR}/include/factoring
+    PUBLIC ${PROJECT_SOURCE_DIR}/include/residue_class
+    PUBLIC ${PROJECT_SOURCE_DIR}/include/random
+)
+
 ## CryptoSystem
 
 add_library(cryptosystem
