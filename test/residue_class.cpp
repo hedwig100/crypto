@@ -57,3 +57,9 @@ TEST(ResidueClass, PrimeGenMust) {
     BigInt p = rc::prime_gen_must(1024, 10);
     EXPECT_TRUE(rc::miller_rabin(p, 10));
 }
+
+TEST(ResidueClass, Eratosthenes) {
+    std::vector<int> actual{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
+    auto primes = rc::eratosthenes(50);
+    EXPECT_EQ(primes, actual);
+}

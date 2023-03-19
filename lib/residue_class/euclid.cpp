@@ -1,3 +1,4 @@
+#include "euclid.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 namespace mp = boost::multiprecision;
 using BigInt = mp::cpp_int;
@@ -63,6 +64,23 @@ T pow(T x, T n, T m) {
 template int pow<int>(int, int, int);
 template BigInt pow<BigInt>(BigInt, BigInt, BigInt);
 
+// pow calculate x^n
+template <typename T>
+T pow(T x, T n) {
+    T ret = T(1), p = T(x);
+    while (n > 0) {
+        if (n & 1) {
+            ret = (ret * p);
+        }
+        n >>= 1;
+        p = p * p;
+    }
+    return ret;
+}
+
+template int pow<int>(int, int);
+template BigInt pow<BigInt>(BigInt, BigInt);
+
 // inv calculate x^{-1} mod m
 // if there is no x^{-1}, return meaningless value.
 template <class T>
@@ -78,5 +96,27 @@ T inv(T x, T m) {
 
 template int inv<int>(int, int);
 template BigInt inv<BigInt>(BigInt, BigInt);
+
+// eratosthenes generate primes lower than B O(BlogB).
+std::vector<int> eratosthenes(int B) {
+    std::vector<bool> is_prime(B + 1, true);
+    is_prime[0] = is_prime[1] = false;
+
+    for (int f = 4; f <= B; f += 2)
+        is_prime[f] = false;
+    for (int p = 3; p <= B; p += 2) {
+        if (!is_prime[p]) continue;
+        for (int d = 2 * p; d <= B; d += p) {
+            is_prime[d] = false;
+        }
+    }
+
+    std::vector<int> primes;
+    primes.reserve(B);
+    for (int p = 2; p <= B; p++) {
+        if (is_prime[p]) primes.push_back(p);
+    }
+    return primes;
+}
 
 } // namespace residue_class
